@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="mt-5 mb-4">Course List</h1>
+    <a class="btn btn-primary" th:href="@{/tutor/uplCou}">Add Course</a>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Course Thumbnail</th>
+                <th>Course Name</th>
+                <th>Price</th>
+                <th>Create Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="course: ${courses}">
+                <td>
+                    <img th:src="@{https://storage.googleapis.com/{src}(src=${course.thumbnail_src})}" >
+                </td>
+                <td th:text="${course.courseName}"></td>
+                <td th:text="${course.price}"></td>
+                <td th:text="${course.createDate}"></td>
+                <td><a class="btn btn-danger" th:href="@{deleCou/{id}(id=${course.id})}">Delete</a>
+                    <a class="btn btn-danger" th:href="@{editCou/{id}(id=${course.id})}">Edit</a>
+                    <a class="btn btn-danger" th:href="@{uplVid/{id}/videos(id=${course.id})}">Upload Unit</a>
+                </td>
+               <!-- <td>
+                    <a class="btn btn-danger" th:href="@{/delete-concert/{id}(id=${concert.id})}">Delete</a>
+                    <a class="btn btn-primary" th:href="@{/concerts/{id}/seats(id=${concert.id})}">Seat</a>
+                </td>-->
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

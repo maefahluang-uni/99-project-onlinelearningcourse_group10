@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="showVideo">
+        <h1>All Units</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    
+            
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="video : ${videos}">
+                    <td th:text="${video.title}"></td>
+                    <td th:text="${video.description}"></td>
+                    <td><video th:src="@{https://storage.googleapis.com/{src}(src=${video.path})}"></video></td>
+                    <td> </td>
+
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+
+    <div class="input">
+    <form th:action="@{/tutor/uplVid/{id}/videos (id=${newVideo.course.id})}" th:object="${newVideo}" method="post">
+        <div class="">
+        <label for="title">Title: </label>
+        <input type="text" id="title" th:field="*{title}" required>
+        <label for="description">Description: </label>
+        <textarea cols="30" rows="10" type="text" id="description" th:field="*{description}"></textarea>
+        <label for="path">Video Source: </label>
+        </div>
+        <input type="text" id="path" th:field="*{path}">
+        <button type="submit" class="btn btn-primary">Upload Video</button>
+    </form>
+    </div>
+</body>
+</html>
