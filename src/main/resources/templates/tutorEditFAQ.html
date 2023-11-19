@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="input">
+        <form th:action="@{/tutor/editFAQ/{fId}(fId =${oldFAQ.id})}" th:object="${newFAQ}" method="post">
+            <div class="" th:object="${oldFAQ}">
+                <label for="Question">Question: </label>
+                <input type="text" id="Question" th:field="*{faqQuestion}" th:value="oldFAQ.faqQuestion" required>
+                <br>
+             <label for="Ans">Answer: </label>
+             <input type="text" id="Ans"  th:field="*{faqAnswer}" th:value="oldFAQ.faqAnswer" required>
+             <label for="date">Upload Date: </label>
+            
+             <input type="date" id="date" th:field="*{faqUploadDate}" th:value="oldFAQ.faqUploadDate" required>
+             <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+        </form>
+        </div>
+</body>
+</html>

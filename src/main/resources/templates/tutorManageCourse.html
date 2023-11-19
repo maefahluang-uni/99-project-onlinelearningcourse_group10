@@ -27,8 +27,13 @@
                 <td th:text="${course.courseName}"></td>
                 <td th:text="${course.price}"></td>
                 <td th:text="${course.createDate}"></td>
-                <td><a class="btn btn-danger" th:href="@{deleCou/{id}(id=${course.id})}">Delete</a>
+                <td>
+                    <form method="POST" th:action="@{deleCou/{id}(id=${course.id})}">
+                        <button type="submit"name="submit"value="value"class="link-button">DELETE</button>
+                    </form>
+                    
                     <a class="btn btn-danger" th:href="@{editCou/{id}(id=${course.id})}">Edit</a>
+                    
                     <a class="btn btn-danger" th:href="@{uplVid/{id}/videos(id=${course.id})}">Upload Unit</a>
                 </td>
                <!-- <td>

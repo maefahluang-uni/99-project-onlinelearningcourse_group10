@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="showinfo">
+        <ul class="Q&A List">
+            <!--TODO: add <li> for listing all seats -->
+                <H1>Q&A</H1>
+            <li th:each="faq : ${faqs}" class="list-group-item">
+                <span th:text="${faq.faqQuestion}"></span> 
+                <span class="ml-3" th:text="${faq.faqAnswer}"></span>
+                <span class="ml-3" th:text="${faq.faqUploadDate}"></span>
+                <form method="POST" th:action="@{/tutor/deleFAQ/{fId}(fId=${faq.id})}">
+                    <button type="submit"name="submit"value="value"class="link-button">DELETE</button>
+                </form>
+                <form method="GET" th:action="@{/tutor/editFAQ/{fId}(fId=${faq.id})}">
+                    <button type="submit"name="submit"value="value"class="link-button">Edit</button>
+                </form>
+            </li>
+        </ul>
+
+    </div>
+        <form th:action="@{ /tutor/FAQupl }" th:object="${faq}" method="post">
+        <div class="">
+        <label for="Question">Question: </label>
+        <input type="text" id="Question" th:field="*{faqQuestion}" required>
+
+        <label for="Answer">Answer: </label>
+        <textarea cols="30" rows="10" type="text" id="Answer" th:field="*{faqAnswer}" required></textarea>
+        
+        <label for="date">Date: </label>
+                <input type="date" class="form-control" id="date" th:field="*{faqUploadDate}" required>
+
+        <button type="submit" class="btn btn-primary">Upload FAQ</button>
+    </form>
+    <div class="form">
+
+
+        
+    </div>
+</body>
+</html>
