@@ -18,9 +18,12 @@
                 <input type="date" class="form-control" id="date" th:field="*{createDate}" required>
                 <label for="courseName">Course Name: </label>
                 <input type="text" class="form-control" id="courseName" th:field="*{courseName}" required>
+                <label for="description">Course Description: </label>
+                <input type="text" class="form-control" th:value="course.course_description"  id="description" th:field="*{course_description}" required>
                 <label for="thumbnailsrc">Thumbnail Source (Bucket/picturename): </label>
                 <input type="text" class="form-control" id="thumbnailsrc" th:field="*{thumbnail_src}" required>
-                
+                <label for="introSrc">Introduction Source (Bucket/picturename)</label>
+                <input type="text" class="form-control" th:value="course.intro_src"  id="introSrc" th:field="*{intro_src}" required>
 
             </div>
             <button type="submit" class="btn btn-primary">Save Course</button>

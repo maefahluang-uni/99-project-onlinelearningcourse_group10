@@ -23,7 +23,7 @@
                 <tr th:each="video : ${videos}">
                     <td th:text="${video.title}"></td>
                     <td th:text="${video.description}"></td>
-                    <td><video th:src="@{https://storage.googleapis.com/{src}(src=${video.path})}"></video></td>
+                    <td><video th:src="@{https://storage.googleapis.com/{src}(src=${video.path})}" controls></video></td>
                     <td>
                         <form method="POST" th:action="@{/tutor/deleVid/{idc}/{idv}(idc=${video.course.id}, idv=${video.id})}">
                             <button type="submit"name="submit"value="value"class="link-button">DELETE</button>

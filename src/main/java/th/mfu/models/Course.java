@@ -24,9 +24,19 @@ public class Course {
     private Date createDate;
     private String courseName;
     private String thumbnail_src;
-    
+    private String intro_src;
+    private String course_description;
     
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getIntro_src() {
+        return intro_src;
+    }
+    public void setIntro_src(String intro_src) {
+        this.intro_src = intro_src;
+    }
     public BigDecimal getPrice() {
         return price;
     }
@@ -56,6 +66,12 @@ public class Course {
     }
     public void setId(long id) {
         this.id = id;
+    }
+    public String getCourse_description() {
+        return course_description;
+    }
+    public void setCourse_description(String course_description) {
+        this.course_description = course_description;
     }
     
 }

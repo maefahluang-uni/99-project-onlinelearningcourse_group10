@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import org.springframework.aop.IntroductionInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -20,9 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jakarta.transaction.Transactional;
 import th.mfu.models.Course;
 import th.mfu.models.FAQ;
+
 import th.mfu.models.Video;
 import th.mfu.repositories.CourseRepository;
 import th.mfu.repositories.FAQRepository;
+
 import th.mfu.repositories.VideoRepository;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -37,10 +40,11 @@ public class tutorController {
     VideoRepository videoRepo;
     @Autowired 
     FAQRepository faqRepo;
-
+    
+   
      @InitBinder
-    public final void initBinderUsuariosFormValidator(final WebDataBinder binder, final Locale locale) {
-        final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", locale);
+    public final void initBinderUsuariosFormValidator(final WebDataBinder binder){//, final Locale locale) {
+        final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//, locale);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
 
@@ -72,6 +76,8 @@ public class tutorController {
         theCourse.setCreateDate(course.getCreateDate());
         theCourse.setPrice(course.getPrice());
         theCourse.setThumbnail_src(course.getThumbnail_src());
+        theCourse.setIntro_src(course.getIntro_src());
+        theCourse.setCourse_description(course.getCourse_description());
         courseRepo.save(theCourse);
         return"redirect:/tutor/manageCou";
     }
@@ -142,7 +148,7 @@ public class tutorController {
         videoRepo.save(newVideo);
         return "redirect:/tutor/uplVid/"+cId+"/videos";
     }
-    
+
     
 
       @GetMapping("/manageCou")
