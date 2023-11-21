@@ -2,6 +2,7 @@ package th.mfu.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.aop.IntroductionInfo;
@@ -19,15 +20,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.transaction.Transactional;
+import th.mfu.models.CourseCategory;
 import th.mfu.models.Course;
 import th.mfu.models.FAQ;
 
 import th.mfu.models.Video;
+import th.mfu.repositories.CategoryRepository;
 import th.mfu.repositories.CourseRepository;
 import th.mfu.repositories.FAQRepository;
 
 import th.mfu.repositories.VideoRepository;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 @RequestMapping("/tutor")
@@ -40,7 +45,8 @@ public class tutorController {
     VideoRepository videoRepo;
     @Autowired 
     FAQRepository faqRepo;
-    
+    @Autowired
+    CategoryRepository cateRepo;
    
      @InitBinder
     public final void initBinderUsuariosFormValidator(final WebDataBinder binder){//, final Locale locale) {
@@ -58,7 +64,7 @@ public class tutorController {
     public String uplCoursePage(Model model)
     {
        model.addAttribute("course", new Course());
-
+        model.addAttribute("cates", cateRepo.findAll());
         return"tutorUploadCourse";
     }
     @PostMapping("/uplCou")
@@ -78,6 +84,7 @@ public class tutorController {
         theCourse.setThumbnail_src(course.getThumbnail_src());
         theCourse.setIntro_src(course.getIntro_src());
         theCourse.setCourse_description(course.getCourse_description());
+        theCourse.setCategory(course.getCategory());
         courseRepo.save(theCourse);
         return"redirect:/tutor/manageCou";
     }
@@ -94,7 +101,7 @@ public class tutorController {
 
     @GetMapping("editCou/{id}")
     public String editCoursePage(@PathVariable long id, Model model)
-    {
+    {   model.addAttribute("cates", cateRepo.findAll());
         model.addAttribute("course", courseRepo.findById(id).get());
         return"tutorEditCourse";
     }
@@ -208,6 +215,52 @@ public class tutorController {
         model.addAttribute("oldFAQ", faqRepo.findById(fId).get());
         return"tutorEditFAQ"; 
     }
+    @GetMapping("/uploadCate")
+    public String UploadCategoryPage( Model model) {
+        model.addAttribute("categories", cateRepo.findAll());
+        model.addAttribute("cate", new CourseCategory());
+        return"tutorUploadCategoryPage";
+    }
+    @PostMapping("/uploadCate")
+    public String SaveCategory(@ModelAttribute CourseCategory cate) {
+        cateRepo.save(cate);
+        return"redirect:/tutor/uploadCate";
+    }
+
+    @GetMapping("/editCate/{id}")
+    public String editCategoryPage(@PathVariable Long id, Model model){
+    
+        model.addAttribute("cate", cateRepo.findById(id).get());
+        
+        return"tutorEditCategory";
+    }
+
+    @PostMapping("/editCate/{id}")
+    public String editCategory(@PathVariable Long id,@ModelAttribute CourseCategory cate){
+        CourseCategory newCate = cateRepo.findById(id).get();
+        newCate.setCategoryName(cate.getCategoryName());
+
+        cateRepo.save(newCate);
+        return "redirect:/tutor/uploadCate";
+    }
+
+    @Transactional
+    @PostMapping("deleCate/{idCate}")
+    public String deleteCategory(@PathVariable Long idCate)
+    {   //set Fk to null so we can delete the data
+       List<Course> courses = courseRepo.findByCategoryId(idCate);
+       for (Course course : courses) {
+        course.setCategory(null);
+         
+       }
+        courseRepo.saveAll(courses);
+
+        cateRepo.deleteById(idCate);
+        return"redirect:/tutor/uploadCate";
+    }
+
+
+    
     
 
 

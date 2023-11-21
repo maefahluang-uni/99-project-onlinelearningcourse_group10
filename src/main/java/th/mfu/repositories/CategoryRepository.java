@@ -1,14 +1,12 @@
 package th.mfu.repositories;
 
 import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 
 import th.mfu.models.CourseCategory;
 import th.mfu.models.Course;
-import th.mfu.models.Video;
 
-public interface CourseRepository extends CrudRepository<Course,Long> {
-    public List<Course> findByCategoryId(Long id);
+public interface CategoryRepository extends CrudRepository<CourseCategory,Long> {
+    
         
 }

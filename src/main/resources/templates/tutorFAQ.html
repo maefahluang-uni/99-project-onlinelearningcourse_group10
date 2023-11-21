@@ -8,7 +8,6 @@
 <body>
     <div class="showinfo">
         <ul class="Q&A List">
-            <!--TODO: add <li> for listing all seats -->
                 <H1>Q&A</H1>
             <li th:each="faq : ${faqs}" class="list-group-item">
                 <span th:text="${faq.faqQuestion}"></span> 
@@ -24,7 +23,10 @@
         </ul>
 
     </div>
-        <form th:action="@{ /tutor/FAQupl }" th:object="${faq}" method="post">
+
+    
+    <div class="form">
+        <form th:action="@{/tutor/FAQupl }" th:object="${faq}" method="post">
         <div class="">
         <label for="Question">Question: </label>
         <input type="text" id="Question" th:field="*{faqQuestion}" required>
@@ -37,7 +39,7 @@
 
         <button type="submit" class="btn btn-primary">Upload FAQ</button>
     </form>
-    <div class="form">
+</div>
 
 
         

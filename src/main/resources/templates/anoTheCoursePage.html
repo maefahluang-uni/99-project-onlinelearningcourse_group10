@@ -23,6 +23,8 @@
      <video controls th:src="@{https://storage.googleapis.com/{src}(src=${course.intro_src})}"></video>
      <br>
      <span th:utext="${'&#3647;'}" ></span></b><span th:text="${course.price}"></span>
+     <br>
+     <td  th:text="${course.category != null} ? ${course.category.categoryName} : 'No category detected'"></td>
      <p th:text ="${course.course_description}"></p>
      <p th:text="${course.createDate}"></p>
     </div>

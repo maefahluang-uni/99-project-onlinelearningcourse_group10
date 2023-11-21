@@ -17,6 +17,12 @@
         <a th:href="@{/logout}" id="Logoutbutt">LogOut</a>
         </div>
     <br>
-    Courses
+    
+    <div th:each="cate: ${catogories}">
+
+       <a th:href="@{/ano/theCate/{cateId} ( cateId = ${cate.id} )}"> <p th:text="${cate.categoryName}"></p> </a>
+
+    </div>
+    
 </body>
 </html>
