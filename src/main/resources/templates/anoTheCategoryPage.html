@@ -6,8 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <div th:each="course : courses">
-        <h1>All Courses</h1>
+    <h1 th:text="${cate != null} ? ${cate.categoryName} : 'No category detected'"></h1>
+    <h2>All Courses</h2>
+   
+     
         <div th:each="course:${courses}">
            
                 <div style="border: solid black 2px; width: 150px;">
@@ -27,6 +29,6 @@
 
 
         </div>
-    </div>
+    
 </body>
 </html>

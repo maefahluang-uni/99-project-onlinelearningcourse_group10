@@ -59,6 +59,7 @@ public class anoController {
     public String theCategoryPage(@PathVariable Long cateId, Model model)
     {
         model.addAttribute("courses", courseRepo.findByCategoryId(cateId));
+        model.addAttribute("cate", cateRepo.findById(cateId).get());
         return"anoTheCategoryPage";
     }
 
