@@ -17,6 +17,12 @@
         <a th:href="@{/logout}" id="Logoutbutt">LogOut</a>
         </div>
     <br>
-    FAQ
+    <H1>FAQ</H1>
+    <div th:each="faq : ${faqs}">
+        <p th:text="${faq.faqQuestion}"></p>
+        <p th:text="${faq.faqAnswer}"></p>
+        <p th:text="${faq.faqUploadDate}"></p>
+    </div>
+
 </body>
 </html>

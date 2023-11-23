@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -28,6 +30,11 @@ public class Course {
     private String course_description;
     
 
+    
+    @ManyToOne(cascade = CascadeType.MERGE )
+    @JoinColumn(name = "category_id")
+    private CourseCategory category;
+    
     public void setId(Long id) {
         this.id = id;
     }
@@ -72,6 +79,18 @@ public class Course {
     }
     public void setCourse_description(String course_description) {
         this.course_description = course_description;
+    }
+   /* public String getCourseCategory() {
+        return courseCategory;
+    }
+    public void setCourseCategory(String courseCategory) {
+        this.courseCategory = courseCategory;
+    } */
+    public CourseCategory getCategory() {
+        return category;
+    }
+    public void setCategory(CourseCategory category) {
+        this.category = category;
     }
     
 }

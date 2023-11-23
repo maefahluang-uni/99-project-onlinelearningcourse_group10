@@ -7,6 +7,37 @@
 </head>
 <body>
     
-    buyingrequest
+    <div >
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Course Name</th>
+                    <th>CoursePrice</th>
+                    <th>Accept</th>
+                    <th>Action</th>
+            
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each=" request :${requests}">
+                    <td th:text="${request.user.username}"></td>
+                    <td th:text="${request.course.courseName}"></td>
+                    <td th:text="${request.course.price}"></td>
+                    <td th:text="${request.respone}"></td>
+                    <td> <form th:action="@{/tutor/buyingReq/{oId}/acp (oId =${request.id})}" method="post">
+
+                        <button type="submit" class="btn btn-primary"> Accept</button>
+                    </form> 
+
+                    <form th:action="@{/tutor/buyingReq/{oId}/de (oId =${request.id})}" method="post">
+
+                        <button type="submit" class="btn btn-primary"> deny</button>
+                    </form></td>
+                    
+                </tr>
+            </tbody>
+        </table> 
+    </div>
 </body>
 </html>

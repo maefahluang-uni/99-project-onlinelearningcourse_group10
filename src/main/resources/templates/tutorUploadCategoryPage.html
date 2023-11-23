@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="showinfo">
+        <ul class="Q&A List">
+                <H1>Categories</H1>
+            <li th:each="cate : ${categories}" class="list-group-item">
+                <span th:text="${cate.categoryName}"></span> 
+                <a class="btn btn-primary" th:href="@{/tutor/editCate/{id}(id =${cate.id})}">Edit Category</a> 
+                 
+                <form method="POST" th:action="@{/tutor/deleCate/{idCate} (idCate=${cate.id})}">
+                    <button type="submit"name="submit"value="value"class="link-button">DELETE</button>
+                </form>
+            </li>
+        </ul>
+
+    </div>
+
+<div class="">
+<form th:action="@{/tutor/uploadCate }" th:object="${cate}" method="post">
+
+<label for="categoryName">CategoryName: </label>
+<input type="text" id="categoryName"  th:field="*{categoryName}" required>
+<button type="submit" class="btn btn-primary">Upload Category</button>
+</form>
+</div>
+
+</body>
+</html>

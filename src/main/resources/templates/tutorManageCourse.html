@@ -8,6 +8,7 @@
 <body>
     <h1 class="mt-5 mb-4">Course List</h1>
     <a class="btn btn-primary" th:href="@{/tutor/uplCou}">Add Course</a>
+    <a class="btn btn-primary" th:href="@{/tutor/uploadCate}">Manage Category</a>
     
     <table class="table table-striped">
         <thead>
@@ -16,6 +17,7 @@
                 <th>Introduction</th>
                 <th>Course Name</th>
                 <th>Description</th>
+                <th>Category</th>
                 <th>Price</th>
                 <th>Create Date</th>
                 <th>Actions</th>
@@ -29,6 +31,7 @@
                 <td> <video controls th:src="@{https://storage.googleapis.com/{src}(src=${course.intro_src})}"></video></td>
                 <td th:text="${course.courseName}"></td>
                 <td th:text = "${course.course_description}"></td>
+                <td  th:text="${course.category != null} ? ${course.category.categoryName} : 'No category detected'"></td>
                 <td th:text="${course.price}"></td>
                 <td th:text="${course.createDate}"></td>
                 <td>

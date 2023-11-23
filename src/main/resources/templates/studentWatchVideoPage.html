@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+
     <div class="topBar">
         
         <a th:href="@{/ano/}" id="">P'TAO TUTORs</a>
@@ -16,27 +17,13 @@
         <a th:href="@{/login}" id="Loginbutt">Login</a>
         <a th:href="@{/logout}" id="Logoutbutt">LogOut</a>
         </div>
-    <br>
-    <div    >
-     <h1><p th:text="${course.courseName}"></p></h1>
-     <h3>Course Introduction</h3>
-     <video controls th:src="@{https://storage.googleapis.com/{src}(src=${course.intro_src})}"></video>
-     <br>
-
-     <span th:utext="${'&#3647;'}" ></span></b><span th:text="${course.price}"></span> 
-
-        <form th:action="@{/student/buying/{cId} (cId =${course.id})}" method="get">
-
-            <button type="submit" class="btn btn-primary">Buy</button>
-        </form>
-
-     <br>
-     <td  th:text="${course.category != null} ? ${course.category.categoryName} : 'No category detected'"></td>
-     <p th:text ="${course.course_description}"></p>
-     <p th:text="${course.createDate}"></p>
-    </div>
-   
     
+    <h1 th:text="${theUnit.course.courseName}"></h1>
+    <h2 th:text="${theUnit.title}"></h2>
+    <video th:src="@{https://storage.googleapis.com/{src}(src=${theUnit.path})}" controls></video>
+    <p th:text="${theUnit.description}"></p>
+    <Br></Br>
+
     <div>
         <h3> All Units </h3>
         <table class="table table-striped">
@@ -44,6 +31,7 @@
                 <tr>
                     <th>Units</th>
                     <th>Description</th>
+                    <th>Action</th>
                 
                 </tr>
             </thead>
@@ -51,11 +39,18 @@
                 <tr th:each="unit : ${units}">
                     <td th:text="${unit.title}"></td>
                     <td th:text="${unit.description}"></td>
-                    
+
+                    <td>
+                    <form th:action="@{/student/watchCou/{cId}/{vId} (cId =${unit.course.id}, vId = ${unit.id})}" method="get">
+
+                        <button type="submit" class="btn btn-primary">Watch</button>
+                    </form>
                     </td>
+                    
                 </tr>
             </tbody>
         </table> 
     </div>
+
 </body>
 </html>

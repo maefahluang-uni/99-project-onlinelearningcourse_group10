@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+
     <div class="topBar">
         
         <a th:href="@{/ano/}" id="">P'TAO TUTORs</a>
@@ -16,15 +17,16 @@
         <a th:href="@{/login}" id="Loginbutt">Login</a>
         <a th:href="@{/logout}" id="Logoutbutt">LogOut</a>
         </div>
-    <br>
-    <H2>Hi~ </H2>
-    <h2><span th:text="${username}"></span></h2>
 
     <div class="input">
-        <form th:action="@{/student/myCou}"  method="get">
-            <button type="submit" class="btn btn-primary">My Course</button>
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            <div class="">
+            <label for="username">Username: </label>
+            <input type="text" id="username" th:field="*{username}" required>
+            <label for="password">Password: </label>
+            <textarea cols="30" rows="10" type="text" id="password" th:field="*{password}" required></textarea>
+            <button type="submit" class="btn btn-primary">Register</button>
         </form>
         </div>
-
 </body>
 </html>

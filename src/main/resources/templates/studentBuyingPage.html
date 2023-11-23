@@ -17,7 +17,18 @@
         <a th:href="@{/logout}" id="Logoutbutt">LogOut</a>
         </div>
     <br>
-    buyingPage
+   
+
+    <div>
+        <p th:text="${course.courseName}"></p>
+        <p th:text="${greet}"></p>
+    </div>
+    <div class="input">
+        <form th:action="@{/student/buying/{cId} (cId =${course.id})}" method="post">
+
+            <button type="submit" class="btn btn-primary"> Send </button>
+        </form>
+        </div>
     
 </body>
 </html>

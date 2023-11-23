@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="topBar">
+        
+        <a th:href="@{/ano/}" id="">P'TAO TUTORs</a>
+        <a th:href="@{/ano/}" id="">Home</a>
+        <a th:href="@{/ano/Courses}" id="">Courses</a>
+        <a th:href="@{/ano/support}" id="">Support</a>
+        <a th:href="@{/student/profile}" id="">Profile</a>
+        <a th:href="@{/login}" id="Loginbutt">Login</a>
+        <a th:href="@{/logout}" id="Logoutbutt">LogOut</a>
+    </div>
+
+    <h1>My Courses</h1>
+    <div th:each="order:${orders}">
+       
+            <div style="border: solid black 2px; width: 150px;">
+                <a th:href="@{/student/watchCou/{cId}(cId =${order.course.id})}" style="display: block;
+                height: 100%;
+                width: 100%;
+                text-decoration: none;">
+                
+                <img th:src="@{https://storage.googleapis.com/{src}(src=${order.course.thumbnail_src})}" >
+                <p th:text="${order.course.courseName}"></p>
+                <span th:utext="${'&#3647;'}" ></span></b><span th:text="${order.course.price}"></span>
+                <p th:text="${order.course.createDate}"></p>
+                
+                </a>
+            </div>
+        
+
+
+    </div>
+
+
+</body>
+</html>

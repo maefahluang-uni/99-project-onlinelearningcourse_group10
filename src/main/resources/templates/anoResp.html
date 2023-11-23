@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+
     <div class="topBar">
         
         <a th:href="@{/ano/}" id="">P'TAO TUTORs</a>
@@ -16,15 +17,7 @@
         <a th:href="@{/login}" id="Loginbutt">Login</a>
         <a th:href="@{/logout}" id="Logoutbutt">LogOut</a>
         </div>
-    <br>
-    <H2>Hi~ </H2>
-    <h2><span th:text="${username}"></span></h2>
 
-    <div class="input">
-        <form th:action="@{/student/myCou}"  method="get">
-            <button type="submit" class="btn btn-primary">My Course</button>
-        </form>
-        </div>
-
+    <p th:text="${resp}"></p>
 </body>
 </html>

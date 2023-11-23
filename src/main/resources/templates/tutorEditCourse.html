@@ -10,7 +10,7 @@
 <body>
     <div class="container mt-5">
         <h1>Edit Course</h1>
-        <form th:action="@{/tutor/editCou/{id}(id=${course.id})}" th:object="${course}" method="post">
+        <form th:action="@{/tutor/editCou/{id} (id=${course.id})}" th:object="${course}" method="post">
             <div class="form-group">
                 <label for="price">Price:</label>
                 <input type="number" name="price" th:value="course.price" class="form-control" min="0" step="0.01" id="price" th:field="*{price}" required>
@@ -20,7 +20,10 @@
                 <input type="text" class="form-control" th:value="course.courseName"  id="courseName" th:field="*{courseName}" required>
                 <label for="description">Course Description: </label>
                 <input type="text" class="form-control" th:value="course.course_description"  id="description" th:field="*{course_description}" required>
-                
+                <label for="cate">Course Description: </label>
+                <select th:value="course.category" id="cate" name="cate" th:field="*{category}"  required>
+                    <option th:each="cate : ${cates}" th:value="${cate.id}" th:text="${cate.categoryName}"></option>
+            </select>
                 <label for="thumbnailSrc">Thumbnail Source (Bucket/picturename)</label>
                 <input type="text" class="form-control" th:value="course.thumbnail_src"  id="thumbnailSrc" th:field="*{thumbnail_src}" required>
                 <label for="introSrc">Introduction Source (Bucket/picturename)</label>
