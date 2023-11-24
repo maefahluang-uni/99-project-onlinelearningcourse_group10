@@ -20,9 +20,9 @@ steps:
    - '--platform'
    - 'managed'
    - '--port'
-   - '8100'
+   - '8080'
 images:
  - 'us-central1-docker.pkg.dev/${_PROJECT_ID}/webdev-dockers/lab-cd'
 
 substitutions:
-  _PROJECT_ID: 'xxxxxxx'
+  _PROJECT_ID: 'ardent-case-402308'
