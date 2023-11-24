@@ -8,6 +8,12 @@
 <body>
     <a href="https://console.cloud.google.com/storage/browser/projectptao" target=”_blank” >Upload Video to Google Cloud Storage</a>
 
+    <div class="back">
+        <form th:action="@{/tutor/manageCou}"  method="get">
+            <button type="submit" class="btn btn-primary">Back</button>
+            </form>
+    </div>
+
     <div class="">
         <h1>All Units</h1>
         <table class="table table-striped">
@@ -51,5 +57,8 @@
         <button type="submit" class="btn btn-primary">Upload Video</button>
     </form>
     </div>
+
+    
+
 </body>
 </html>

@@ -95,6 +95,7 @@ public class tutorController {
     @PostMapping("deleCou/{id}")
     public String deleteCourse(@PathVariable long id)
     {   
+        orderRepo.deleteByCourseId(id);
         videoRepo.deleteByCourseId(id);
         courseRepo.deleteById(id);
         return "redirect:/tutor/manageCou";

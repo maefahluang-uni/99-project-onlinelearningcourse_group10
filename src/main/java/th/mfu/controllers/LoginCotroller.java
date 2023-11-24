@@ -21,6 +21,11 @@ public class LoginCotroller {
     UsersRepository userRepo;
     
 
+    @GetMapping("/login")
+    public String LoginPage(){
+        return"login";
+    }
+
     @GetMapping("/register")
     public String registerUserPage(Model model ) {
       

@@ -29,16 +29,27 @@
         <!--<a th:href="@{/login}" id="Loginbutt">Login</a>
         <a th:href="@{/logout}" id="Logoutbutt">LogOut</a>-->
         </div>
+    
+    <div class="login-page">
+        <div class="form">
+          <h2>Please Log In</h2>
+          <div class="error" th:if="${param.error}">
+              Invalid username Or password.</div>
+          <div class="error" th:if="${param.logout}">
+              You have been logged out.</div>
+          <form  class="login-form" th:action="@{/login}" method="post">
+              <div>
+              <input type="text" name="username" placeholder="Username"/>
+              </div>
+              <div>
+              <input type="password" name="password" placeholder="Password"/>
+              </div>
+              <input class="button" type="submit" value="Log in" />
+          </form>
+          
+      </div>
+  </div>
 
-    <div class="input">
-        <form th:action="@{/register}" th:object="${user}" method="post">
-            <div class="">
-            <label for="username">Username: </label>
-            <input type="text" id="username" th:field="*{username}" required>
-            <label for="password">Password: </label>
-            <textarea cols="30" rows="10" type="text" id="password" th:field="*{password}" required></textarea>
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-        </div>
+    <a href="/oauth2/authorization/google">Google</a>
 </body>
 </html>

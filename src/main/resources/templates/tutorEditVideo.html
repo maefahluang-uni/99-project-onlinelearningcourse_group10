@@ -19,5 +19,12 @@
             <button type="submit" class="btn btn-primary">Upload Video</button>
         </form>
         </div>
+
+        <div class="back">
+            <form th:action="@{/tutor/uplVid/{cId}/videos (cId=${video.course.id})}" method="get">
+                <button type="submit" class="btn btn-primary">Back</button>
+                </form>
+        </div>
+
 </body>
 </html>

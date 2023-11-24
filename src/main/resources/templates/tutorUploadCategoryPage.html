@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+
+    
     
     <div class="showinfo">
         <ul class="Q&A List">
@@ -29,6 +31,12 @@
 <input type="text" id="categoryName"  th:field="*{categoryName}" required>
 <button type="submit" class="btn btn-primary">Upload Category</button>
 </form>
+</div>
+
+<div class="back">
+    <form th:action="@{/tutor/manageCou}"  method="get">
+        <button type="submit" class="btn btn-primary">Back</button>
+        </form>
 </div>
 
 </body>

@@ -9,6 +9,12 @@
     <h1 class="mt-5 mb-4">Course List</h1>
     <a class="btn btn-primary" th:href="@{/tutor/uplCou}">Add Course</a>
     <a class="btn btn-primary" th:href="@{/tutor/uploadCate}">Manage Category</a>
+
+    <div class="back">
+        <form th:action="@{/tutor/}"  method="get">
+            <button type="submit" class="btn btn-primary">Back</button>
+            </form>
+    </div>
     
     <table class="table table-striped">
         <thead>

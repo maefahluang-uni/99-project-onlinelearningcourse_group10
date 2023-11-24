@@ -31,7 +31,8 @@ public class ProjectSecurityConfig {
                 auth.requestMatchers("/tutor/**").hasAuthority("TUTOR");
                 auth.requestMatchers("/student/**").hasAuthority("STUDENT");
                 auth.anyRequest().permitAll();
-            }).formLogin(Customizer.withDefaults()).oauth2Login(Customizer.withDefaults()).httpBasic();//
+            }).formLogin(formLogin -> formLogin.loginPage("/login")).oauth2Login(oauth2Login -> oauth2Login.loginPage("/login")).httpBasic();
+            //.formLogin(Customizer.withDefaults()).oauth2Login(Customizer.withDefaults()).httpBasic();//
             return http.build();
 
          

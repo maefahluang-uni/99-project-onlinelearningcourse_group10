@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import th.mfu.models.Course;
 import th.mfu.models.Orders;
+import th.mfu.models.Video;
 import th.mfu.models.users;
 
 public interface OrderRepository extends CrudRepository<Orders,Long> {
@@ -13,5 +14,6 @@ public interface OrderRepository extends CrudRepository<Orders,Long> {
     public List<Orders> findByUserId(Long id);
     public List<Orders> findByCourseId(Long id);
     public List<Orders> findByResponeAndUserId(Boolean respone,Long id);
+     public List<Orders> deleteByCourseId(long course_id);
 
 }
