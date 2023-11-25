@@ -1,10 +1,10 @@
 steps:
  # Build the container image
  - name: 'gcr.io/cloud-builders/docker'
-   args: [ 'build', '-t', 'us-central1-docker.pkg.dev/${_PROJECT_ID}/projectrepo/lab-cd:$COMMIT_SHA', '.' ]
+   args: [ 'build', '-t', 'us-central1-docker.pkg.dev/${_PROJECT_ID}/webdev-dockers/lab-cd:$COMMIT_SHA', '.' ]
  # Push the container image to Artifact Registry
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'us-central1-docker.pkg.dev/${_PROJECT_ID}/projectrepo/lab-cd:$COMMIT_SHA']
+   args: ['push', 'us-central1-docker.pkg.dev/${_PROJECT_ID}/webdev-dockers/lab-cd:$COMMIT_SHA']
  # Deploy container image to Cloud Run
  - name: 'gcr.io/cloud-builders/gcloud'
    entrypoint: gcloud
@@ -25,4 +25,4 @@ images:
  - 'us-central1-docker.pkg.dev/${_PROJECT_ID}/webdev-dockers/lab-cd'
 
 substitutions:
-  _PROJECT_ID: 'finalproject-406213'
+  _PROJECT_ID: 'onlinelearning-406214'
