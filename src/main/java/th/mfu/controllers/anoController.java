@@ -14,6 +14,7 @@ import th.mfu.repositories.CourseRepository;
 import th.mfu.repositories.FAQRepository;
 import th.mfu.repositories.VideoRepository;
 
+//Not login users
 @Controller
 @RequestMapping("/ano")
 @CrossOrigin("*")

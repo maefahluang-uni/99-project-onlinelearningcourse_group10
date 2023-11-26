@@ -16,7 +16,7 @@ public class App {
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
-    @Bean
+    @Bean //Create tutor user if not already exist
 	CommandLineRunner run( UsersRepository userRepo){
 		return args ->{
 			if(userRepo.findByRole("TUTOR")!=null) return;
