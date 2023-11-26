@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import th.mfu.models.users;
 import th.mfu.repositories.UsersRepository;
 
+
+//Controller that manage login pages
 @Controller
 public class LoginCotroller {
     @Autowired

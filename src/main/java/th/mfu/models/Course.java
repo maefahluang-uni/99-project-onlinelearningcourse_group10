@@ -14,8 +14,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
+
 @Entity
 public class Course {
+
+    /*GenerationType.IDENTITY to let the !database! handle the auto incrementing of the id
+    Mysql not support sequence
+    */
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +33,10 @@ public class Course {
     private String thumbnail_src;
     private String intro_src;
     private String course_description;
-    
 
-    
+  
+
+    //When an entity is merged (updated), the same operation will be applied to associated entities.
     @ManyToOne(cascade = CascadeType.MERGE )
     @JoinColumn(name = "category_id")
     private CourseCategory category;
@@ -92,5 +98,12 @@ public class Course {
     public void setCategory(CourseCategory category) {
         this.category = category;
     }
+      /*CascadeType.REPLICATE is a cascading type in Hibernate that specifies that the replicate operation should be cascaded from the parent entity to the child entities.
+    When CascadeType.REPLICATE is used, any child entities associated with a parent entity will be automatically replicated when the parent entity is replicated. This means that new child entities will be created and persisted in the database with the same state as the original child entities. */
+    //CascadeType.REMOVE is a cascading type in Hibernate that specifies that the delete operation should be cascaded from the parent entity to the child entities.
+    //CascadeType.Refresh So if entity A has a reference to entity B, and that reference is annotated with @CascadeType.REFRESH, and EntityManager.refresh(A) is called, then EntityManager.refresh(B) is implicitly called also.
+    //CascadeType.ALL is a cascading type in Hibernate that specifies that all state transitions (create, update, delete, and refresh) should be cascaded from the parent entity to the child entities.
+    //When an entity is persisted (Create,save), the same operation will be applied to associated entities.
+    //AAAAAAAAAAAH
     
 }

@@ -16,7 +16,19 @@
         <java.version>17</java.version>
     </properties>
     
-
+<!--
+    10 dependencies
+    1.spring web Mvc Stuff
+    2.Spring boot devtool
+    3.Spring boot devtools extra feature stuff but better not remove this right now (don't fix what work for now )
+    4.Oauth2 Client google login stuff
+    5.MySQl Driver Mysql stuff (Java database connectivity (JDBC)) 
+    6.Spring Data Jpa repositories stuff
+    7.Thynleaf html stuff
+    8.JDBC Same as MYSQL driver?
+    9.Spring Security Login stuff
+    10.Oauth2 google login stuff
+-->
     <dependencyManagement>
         <dependencies>
           <dependency>

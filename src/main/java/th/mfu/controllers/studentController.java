@@ -20,6 +20,8 @@ import th.mfu.repositories.FAQRepository;
 import th.mfu.repositories.OrderRepository;
 import th.mfu.repositories.UsersRepository;
 import th.mfu.repositories.VideoRepository;
+
+//Student login page stuff
 @Controller
 @RequestMapping("/student")
 @CrossOrigin("*")

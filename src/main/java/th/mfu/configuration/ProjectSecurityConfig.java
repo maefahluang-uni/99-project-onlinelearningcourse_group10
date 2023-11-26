@@ -1,5 +1,5 @@
 package th.mfu.configuration;
-
+//Login setting.
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -24,7 +24,6 @@ public class ProjectSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
-        
           http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> {
@@ -53,6 +52,8 @@ public class ProjectSecurityConfig {
             return new JdbcUserDetailsManager(dataSource);
         }
         */
+
+        // Don't need to use encoder right now.
         @Bean
         public PasswordEncoder passwordEncoder() {
             return NoOpPasswordEncoder.getInstance();

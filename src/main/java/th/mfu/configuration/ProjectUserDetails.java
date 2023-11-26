@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import th.mfu.models.users;
 import th.mfu.repositories.UsersRepository;
 
+//for retrieving a username, a password, and other attributes for authenticating to Authentication Provider with a username and password.
 @Service
 public class ProjectUserDetails implements UserDetailsService {
     @Autowired
