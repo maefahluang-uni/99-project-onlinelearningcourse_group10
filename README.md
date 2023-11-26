@@ -29,11 +29,11 @@
 
 2.Tutor 
 2.1 Upload course tutor put in all vaule and src for introduction and thumbnail and click.
-2.2 Tutor can edit course.
-2.3 Tutor can delete course.
-2.4 Tutor can upload units(video for the courses) and delete edit them.
+2.2 Tutor can edit course by click edit course at the manage course page.
+2.3 Tutor can delete course by click delete course at the manage course page.
+2.4 Tutor can upload units(videos for the course), delete, edit them at the upload unit page.
 2.5 tutor can manage buying order in order tap by clicking accept and deny.
-2.5 tutor can upload, faq edit faq, and delete faq.
+2.5 tutor can upload, faq edit faq, and delete faq at the faq page.
 ```
 
 
