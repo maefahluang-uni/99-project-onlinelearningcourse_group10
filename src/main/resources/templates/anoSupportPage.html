@@ -1,32 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap">
-</head>
-<body>
-
-    <header-tran id="navbar">
-        <div>
-        <a th:href="@{/ano/}" id=""><img src="https://scontent.fbkk5-5.fna.fbcdn.net/v/t1.15752-9/385518083_3434056256846827_5137850531515186788_n.png?_nc_cat=100&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeHRcQ6bUZnAcyFcYrytagjq4lbwqI2VagviVvCojZVqCyW0vdluZPBKmRKBbecCsWTUpGsJuaHJZslM53fJd7qM&_nc_ohc=aMJP3iakwp8AX9kZTkn&_nc_ht=scontent.fbkk5-5.fna&oh=03_AdQAwb3vYiiVaI0Ij1QztVwKygxTcjR5JIMar1qm9C9NYQ&oe=6589423F" alt="" style="width: 200px;"></a>
-        </div>
-        <nav class="navigation">
-            <a th:href="@{/ano/}" id="">Home</a>
-            <a th:href="@{/ano/Courses}" id="">Courses</a>
-            <a th:href="@{/ano/support}" id="">Support</a>           
-            <a sec:authorize="hasAuthority('STUDENT')" th:href="@{/student/profile}" id="">Profile</a>                       
-            <a sec:authorize="isAuthenticated()" th:href="@{/logout}">Log out</a>
-            <a sec:authorize="isAnonymous()" th:href="@{/login}">Log in</a>
-            <a sec:authorize="isAnonymous()" th:href="@{/register}">Register</a>     
-        </nav>
-    </header-tran>
-
-
-
-    <!DOCTYPE html>
-<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,8 +16,8 @@
 }
 
 body{
-    background: url("https://scontent.fbkk5-8.fna.fbcdn.net/v/t1.15752-9/400569402_693547909414480_1200358151803483372_n.png?stp=dst-png_s2048x2048&_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeF8IuMD2ScSRwXr6eM0zyL9MRUbYxSTADExFRtjFJMAMbAjN2op4PzoWME3bOnG-xJ-a7-O49F-VWx5gX-LIRaZ&_nc_ohc=IQ1KhwpHgk8AX_uccGq&_nc_ht=scontent.fbkk5-8.fna&oh=03_AdSMvTmM--Bg0u7MIRpnkN_Vy68XdS4uZlw10q9gaJbA7g&oe=658ACFDF");
-    background-size: cover;
+    background-color: rgb(255, 255, 255);
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -170,9 +143,9 @@ topic{
     margin-left: 50px;
 }
 txw{
-    display: flex;
-    font-size: 40px;
-    color: rgb(3, 0, 0);
+    
+    font-size: 60px;
+    color: white;
     user-select: none;
     font-weight: 600;
 }
@@ -252,9 +225,13 @@ c-icon{
 }
 
 .container {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    
+    /* Add styles for your content container */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffffff; /* Example text color, change as needed */
+    position: relative;
+    z-index: 1; 
 }
 .container-c{
     background-color: rgb(255, 255, 255);
@@ -576,14 +553,15 @@ nav{
 
 .banner-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 40%;
+    left: 85%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 60px;
+    font-size: 35px;
     font-weight: 600;
-    text-align: center;
-    z-index: 1; /* Ensure text appears on top of the image */
+    text-align: right;
+    z-index: 1;
+    padding-bottom: 10px; 
 }
 
 
@@ -743,10 +721,51 @@ body-line1{
     c-icon {      
         margin-right: 20px;
     }
-    
+    .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 600px;
+            
+            z-index: -1; /* Place the image behind other elements */
+        }
+
 }
 
 </style>
+
+    </head>
+    <header-tran id="navbar">
+        <div>
+        <a th:href="@{/ano/}" id=""><img src="https://scontent.fbkk5-5.fna.fbcdn.net/v/t1.15752-9/385518083_3434056256846827_5137850531515186788_n.png?_nc_cat=100&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeHRcQ6bUZnAcyFcYrytagjq4lbwqI2VagviVvCojZVqCyW0vdluZPBKmRKBbecCsWTUpGsJuaHJZslM53fJd7qM&_nc_ohc=aMJP3iakwp8AX9kZTkn&_nc_ht=scontent.fbkk5-5.fna&oh=03_AdQAwb3vYiiVaI0Ij1QztVwKygxTcjR5JIMar1qm9C9NYQ&oe=6589423F" alt="" style="width: 200px;"></a>
+        </div>
+        <nav class="navigation">
+            <a th:href="@{/ano/}" id="">Home</a>
+            <a th:href="@{/ano/Courses}" id="">Courses</a>
+            <a th:href="@{/ano/support}" id="">Support</a>           
+            <a sec:authorize="hasAuthority('STUDENT')" th:href="@{/student/profile}" id="">Profile</a>                       
+            <a sec:authorize="isAuthenticated()" th:href="@{/logout}">Log out</a>
+            <a sec:authorize="isAnonymous()" th:href="@{/login}">Log in</a>
+            <a sec:authorize="isAnonymous()" th:href="@{/register}">Register</a>     
+        </nav>
+    </header-tran>
+
+    <body>
+        <div class="main-content">
+            <div class="banner-container">
+        <img src="https://cdn.discordapp.com/attachments/749067213918568468/1178383164742324306/image.png?ex=6575f1d7&is=65637cd7&hm=77fb459a354bd19182a5f978924684c51d2c71d4b4390d090004ba05da968b4d&" class="background-image" width="100%">
+        <h1 class="banner-text">
+            <txw>FAQ</txw>
+            <div th:each="faq : ${faqs}">
+                <p th:text="${faq.faqQuestion}"></p>
+                <p th:text="${faq.faqAnswer}"></p>
+                <p th:text="${faq.faqUploadDate}"></p>
+            </div>
+
+        </h1>
+   
+    
+
     
 </body>
 </html>

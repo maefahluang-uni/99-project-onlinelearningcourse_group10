@@ -1,52 +1,878 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <title>Login</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+bodybio {
+    position: fixed;
+    top: 0;
+    height: 45%;
+    width: 200%;
+    background-image: url(image/Bio.png);
+    background-position: center;
+
+}
+
+bodychemical{
+    background: url(image/Chemical.png);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;  
+}
+bodyphysic{
+    background: url(image/Physic.png);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;  
+}
+body-brown{
+    background-color: rgb(245,236,226);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 100%;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 20px;
+    background-color: rgba(105, 102, 102, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+header-green{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 20px;
+    background-color: #44693e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    transition: top 0.5s;
+}
+header-brown{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 20px;
+    background-color: rgba(102, 88, 76, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    transition: top 0.5s;
+    
+}
+
+header-tran{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 20px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    transition: top 0.5s;
+}
+
+.logo{
+    
+    font-size: 20px;
+    color: white;
+    user-select: none;
+   
+}
+
+
+
+tx{
+    font-size: 40px;
+    color: rgb(3, 0, 0);
+    user-select: none;
+    font-weight: 600;
+}
+txz{
+    font-size: 60px;
+    color: rgb(3, 0, 0);
+    user-select: none;
+    font-weight: 1000;
+    
+}
+topic{
+    font-size: 40px;
+    color: rgb(3, 0, 0);
+    user-select: none;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 50px;
+}
+txw{
+    
+    font-size: 60px;
+    color: white;
+    user-select: none;
+    font-weight: 600;
+}
+
+
+p-icon{
+    font-size: 300px;
+    color: rgb(3, 0, 0);
+    user-select: none;
+   
+}
+c-icon{
+    font-size: 300px;
+    color: rgb(3, 0, 0);
+    user-select: none;
+    cursor: pointer;
+    margin-right: 40px;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.navigation a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.navigation a:hover:after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.login-button{
+    width: 130px;
+    height: 50px;
+    background: rgb(230, 223, 223);
+    border: transparent;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation .login-button:hover {
+    background: #fff;
+    color: #000;
+    transition: .5s;
+}
+
+.container gbutton:hover {
+    background: #818181;
+    color: #000;
+    transition: .5s;
+}
+
+.container fbutton:hover {
+    background: rgba(104, 162, 238, 0.83);
+    color: #000;
+    transition: .5s;
+}
+
+.container {
+    /* Add styles for your content container */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffffff; /* Example text color, change as needed */
+    position: relative;
+    z-index: 1; 
+}
+.container-c{
+    background-color: rgb(255, 255, 255);
+    padding-top: 10px;
+    position: relative;
+    margin-top: 70%;
+}
+.container:before {
+    content: "";
+    display: block;
+    height: 200px; /* Adjust the height to create the desired space */
+    width: 100%;
+}
+.container .content {
+    position: relative;
+    z-index: 1; /* Ensure content appears above the pseudo-element */
+}
+
+.container-tran {
+    background: transparent;
+    border-radius: 10px;
+
+}
+
+.container button{
+    background-color: white;
+    border-radius: 10px;
+    font-size: 15;
+    padding: 15px 45px;
+    font-weight: 600;
+    margin-top: 10;
+    cursor: pointer;
+    margin: 30px;
+    
+}
+
+.container buttonx{
+    background-color: black;
+    border-radius: 10px;
+    font-size: 12;
+    padding: 15px 100px;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    margin-top: 10;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.container form{
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+    
+}
+.container form-tran{
+    background-color: transparent;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+    
+}
+.container-tran form-tran{
+    background-color: transparent;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+    
+}
+.container-tran form-tran-row{
+    background-color: transparent;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    flex-direction: row;
+    padding: 0 40px;
+    height: 100%;
+    
+}
+.container form-tran{
+    background-color: transparent;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+    
+}
+.container form-tran-row{
+    background-color: transparent;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    flex-direction: row;
+    padding: 0 40px;
+    height: 100%;
+    
+}
+.container input{
+    background-color: linear-gradient(to bottom,rgb(170, 166,166),white);
+    border-style: double;
+    border-color: rgb(170, 166, 166);
+    margin: 8px 0;
+    padding: 13px 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 130%;
+    outline: none;
+    
+}
+
+
+
+
+.container social{
+    border: 1px; 
+    cursor: pointer;
+    
+}
+
+
+.container gbutton {
+    display: flex;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size: 14px; 
+    padding: 5px 75px;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    margin: 20px;
+}
+.container fbutton {
+    display: flex;
+    align-items: center;
+    background-color: rgb(61, 124, 218);
+    border-radius: 10px;
+    font-size: 14px; 
+    padding: 5px 36px;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.container a{
+    font-size: 20px;
+    font-weight: 400;
+    margin: 2px;
+    cursor: pointer;
+    margin-top: 32px;
+}
+
+.container b{
+    font-size: 40px;
+    font-weight: 600;
+    margin: 2px;
+}
+
+
+.container span {
+    display: flex;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 2px;
+    
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 12%;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+.loginastutor-button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+.link-buttons {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-weight: 800;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+.link-button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: rgb(234,67,53);
+    color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-weight: 800;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+.loginastutor-button:hover{
+    background: rgb(216, 216, 216);
+    color: #000;
+    transition: .5s;
+}
+.mycourses-button, .profile-button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: rgb(206, 178, 151);
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-weight: 800;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+.mycourses-button:hover, .profile-button:hover {
+    background: rgb(224, 205, 188);
+    color: #000;
+    transition: .5s;
+}
+
+.update-button{
+    display: inline-block;
+    padding: 10px 30px;
+    text-decoration: none;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-weight: 800;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+.update-button:hover{
+    background: rgb(255, 255, 255);
+    color: #000;
+    transition: .5s;
+}
+.backtutor-button{
+    display: inline-block;
+    padding: 10px 40px;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+.backtutor-button:hover{
+    background-color: #d1d1d1;
+}
+.container .logintutor-button{
+    display: inline-block;
+    padding: 10px 70px;
+    text-decoration: none;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px 50px #000000;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    
+}
+.logintutor-button:hover {
+    background-color: #818181;
+}
+
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.banner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: -1; /* Set a lower z-index to move it behind other elements */
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    top: 0%;
+}
+
+.banner-text {
+    position: absolute;
+    top: 40%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: right;
+    z-index: 1;
+    padding-bottom: 10px; 
+}
+
+
+
+body-line1{
+    margin-top: 600px;
+}
+
+/* Product Grid Styles */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    
+}
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.product-image {
+    border-radius: 15px;
+    height: 156px;
+    width: 227;
+    margin-bottom: 15px;
+}
+
+.product-description {
+    max-width: 300px;
+    text-align: center;
+    word-wrap: break-word;
+    margin-bottom: 15px;
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px; /* Add margin to separate price and button */
+}
+
+.buy-button {
+    padding: 10px 30px;
+    font-size: 16px;
+    background-color: black !important;
+    color: rgb(255, 255, 255); 
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.buy-button:hover{
+    background-color: #666666 !important;
+    transition: 0.5s;
+}
+.product-grid form-row {
+    background-color: transparent;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+.product-grid form-horizon {
+    background-color: transparent;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    flex-direction: row;
+    padding: 0 40px;
+    height: 100%;
+}
+.back {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            
+            z-index: 99;
+        }
+
+        .showinfo {
+            margin-top: 80px; /* Adjusted margin for smaller screens */
+        }
+
+        .Q&A {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .Q&A-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .Q&A-item {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+       
+
+
+
+        /* New styles for form section */
+        .form {
+            margin-top: 40px; /* Adjusted margin for smaller screens */
+            text-align: center;
+        }
+
+        .form label {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .form input,
+        .form textarea,
+        .form select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form button:hover {
+            background-color: #6d6d6d;
+        }
+/* For responsiveness */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* Change to a single column on smaller screens */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    header-brown {
+        padding: 10px;
+    }
+
+    .logo img {
+        width: 150px;
+    }
+
+    .navigation {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .navigation a {
+        margin: 0;
+    }
+
+    .login-button {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+/* Adjustments for smaller screens */
+@media only screen and (max-width: 768px) {
+    header {
+        padding: 15px 15px;
+    }
+
+    .navigation a {
+        font-size: 16px;
+        margin-left: 15px;
+    }
+
+    .login-button {
+        width: 110px;
+        height: 40px;
+        font-size: 18px;
+        margin-left: 15px;
+    }
+
+    .container {
+        margin-top: 80px;
+    }
+
+    txz {
+        font-size: 30px;
+    }
+
+    form-tran {
+        flex: 0 0 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+
+    c-icon {      
+        margin-right: 20px;
+    }
+    .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 600px;
+            
+            z-index: -1; 
+        }
+
+}
+</style>
 
     <div class="back">
-        <form th:action="@{/tutor/}"  method="get">
-            <button type="submit" class="btn btn-primary">Back</button>
-            </form>
+        <form th:action="@{/tutor/}" method="get">
+            <button type="submit" class="backtutor-button">Back</button>
+        </form>
     </div>
 
     <div class="showinfo">
-        <ul class="Q&A List">
-                <H1>Q&A</H1>
-            <li th:each="faq : ${faqs}" class="list-group-item">
-                <span th:text="${faq.faqQuestion}"></span> 
-                <span class="ml-3" th:text="${faq.faqAnswer}"></span>
-                <span class="ml-3" th:text="${faq.faqUploadDate}"></span>
-                <form method="POST" th:action="@{/tutor/deleFAQ/{fId}(fId=${faq.id})}">
-                    <button type="submit"name="submit"value="value"class="link-button">DELETE</button>
-                </form>
-                <form method="GET" th:action="@{/tutor/editFAQ/{fId}(fId=${faq.id})}">
-                    <button type="submit"name="submit"value="value"class="link-button">Edit</button>
-                </form>
-            </li>
-        </ul>
+        <h1 class="Q&A">Q&A</h1>
+        <ul class="Q&A-list">
+            <a th:each="faq : ${faqs}" class="Q&A-item">
+                <span style="font-size: 20px;" th:text="${faq.faqQuestion}"></span>
+                <span class="ml-3" style="font-size: 20px;" th:text="${faq.faqAnswer}"></span>
+                <span class="ml-3" style="font-size: 20px;" th:text="${faq.faqUploadDate}"></span>
+            </a>
 
+                <form method="GET" th:action="@{/tutor/editFAQ/{fId}(fId=${faq.id})}">
+                    <button type="submit" name="submit" value="value" class="link-buttons">Edit</button>
+                    <form method="POST" th:action="@{/tutor/deleFAQ/{fId}(fId=${faq.id})}">
+                        <button method="POST" th:action="@{/tutor/deleFAQ/{fId}(fId=${faq.id})}" type="submit" name="submit" value="value" class="link-button">DELETE</button>
+                    </form>
+                </form>
+                
+                
+            </a>
+        </ul>
     </div>
 
-    
     <div class="form">
-        <form th:action="@{/tutor/FAQupl }" th:object="${faq}" method="post">
-        <div class="">
-        <label for="Question">Question: </label>
-        <input type="text" id="Question" th:field="*{faqQuestion}" required>
+        <form th:action="@{/tutor/FAQupl}" th:object="${faq}" method="post">
+            <label for="Question">Question:</label>
+            <input type="text" id="Question" th:field="*{faqQuestion}" required>
 
-        <label for="Answer">Answer: </label>
-        <textarea cols="30" rows="10" type="text" id="Answer" th:field="*{faqAnswer}" required></textarea>
-        
-        <label for="date">Date: </label>
-                <input type="date" class="form-control" id="date" th:field="*{faqUploadDate}" required>
+            <label for="Answer">Answer:</label>
+            <input cols="30" rows="10" id="Answer" th:field="*{faqAnswer}" required></input>
 
-        <button type="submit" class="btn btn-primary">Upload FAQ</button>
-    </form>
-</div>
+            <label for="date">Date:</label>
+            <input type="date" class="form-control" id="date" th:field="*{faqUploadDate}" required>
+
+            <button type="submit" class="btn btn-primary">Upload FAQ</button>
+        </form>
+    </div>
 
 
         
