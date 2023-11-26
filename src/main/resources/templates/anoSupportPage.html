@@ -6,28 +6,22 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap">
 </head>
-<body>
 
-    <div class="container">
-        <div class="topBar">
-            <a th:href="@{/ano/}" id="">P'TAO TUTORs</a>
+<body>
+    <header id="navbar">
+        <div>
+        <a th:href="@{/ano/}" id=""><img src="https://scontent.fbkk5-5.fna.fbcdn.net/v/t1.15752-9/385518083_3434056256846827_5137850531515186788_n.png?_nc_cat=100&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeHRcQ6bUZnAcyFcYrytagjq4lbwqI2VagviVvCojZVqCyW0vdluZPBKmRKBbecCsWTUpGsJuaHJZslM53fJd7qM&_nc_ohc=aMJP3iakwp8AX9kZTkn&_nc_ht=scontent.fbkk5-5.fna&oh=03_AdQAwb3vYiiVaI0Ij1QztVwKygxTcjR5JIMar1qm9C9NYQ&oe=6589423F" alt="" style="width: 200px;"></a>
+        </div>
+        <nav class="navigation">
             <a th:href="@{/ano/}" id="">Home</a>
             <a th:href="@{/ano/Courses}" id="">Courses</a>
-            <a th:href="@{/ano/support}" id="">Support</a>
-
-            <div sec:authorize="hasAuthority('STUDENT')">
-                <a th:href="@{/student/profile}" id="">Profile</a>
-            </div>
-
-            <div sec:authorize="isAuthenticated()">
-                <a th:href="@{/logout}">Log out</a>
-            </div>
-
-            <div sec:authorize="isAnonymous()">
-                <a th:href="@{/login}">Log in</a>
-                <a th:href="@{/register}"> Register </a>
-            </div>
-        </div>
+            <a th:href="@{/ano/support}" id="">Support</a>           
+            <a sec:authorize="hasAuthority('STUDENT')" th:href="@{/student/profile}" id="">Profile</a>                       
+            <a sec:authorize="isAuthenticated()" th:href="@{/logout}">Log out</a>
+            <a sec:authorize="isAnonymous()" th:href="@{/login}">Log in</a>
+            <a sec:authorize="isAnonymous()" th:href="@{/register}">Register</a>     
+        </nav>
+    </header>
 
         <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/403412536_1382561062361615_7408591081759642302_n.png?stp=dst-png_s2048x2048&_nc_cat=104&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeFMK7mkrpF6_RV8CoPxdJFWDOO4coYqUXEM47hyhipRcVfm2eCrCEfq9AYT4rA-kVTBh64ETHp-QNzqc-gqdS73&_nc_ohc=lj2q9vViKcsAX80cmFV&_nc_ht=scontent.fbkk5-5.fna&oh=03_AdRguwIwdoxn7r1c0RusVSdPnS6SnwaEHY1FxSZkobvDzw&oe=6587EE11&_nc_fr=fbkk5c05" class="background-image">
     </div>
@@ -59,6 +53,56 @@
             margin: 0;
             padding: 0;
         }
+        
+        header{
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 20px;
+    background-color: rgba(105, 102, 102, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 12%;
+}
+.navigation {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .navigation a {
+    position: relative;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.navigation a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.navigation a:hover:after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
 
         .topBar {
             background-color: #333;
