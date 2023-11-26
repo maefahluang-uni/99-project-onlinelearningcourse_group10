@@ -3,22 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tutor Menu</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            font-weight: bolder;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        /* Customize button colors */
+        .upload-course {
+            background-color: #28a745; /* Green */
+        }
+
+        .manage-course {
+            background-color: #007bff; /* Blue */
+        }
+
+        .buying-request {
+            background-color: #dc3545; /* Red */
+        }
+
+        .tutor-faq {
+            background-color: #ffc107; /* Yellow */
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
 
-    Here tutorMenu
-    <br>
-    <a th:href="@{/tutor/uplCou}"  id="">Upload course</a>
-    <br>
-    <a th:href="@{/tutor/manageCou}"  id="">Manage Course</a>
-    <br>
-    <a th:href="@{/tutor/buyingReq}"  id="">Buying Request</a>
-    <br>
-    <a th:href="@{/tutor/FAQ}"  id="">Tutor FAQ Page</a>
-
-
-
+    <h1>Tutor Menu</h1>
     
+    <a class="upload-course" th:href="@{/tutor/uplCou}">Upload Course</a>
+    <a class="manage-course" th:href="@{/tutor/manageCou}">Manage Course</a>
+    <a class="buying-request" th:href="@{/tutor/buyingReq}">Buying Request</a>
+    <a class="tutor-faq" th:href="@{/tutor/FAQ}">Tutor FAQ Page</a>
+
 </body>
 </html>

@@ -3,47 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tutor Requests</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your own styles if needed -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .back {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+        }
+
+        th {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .btn-accept {
+            background-color: #86b049;
+            border-color: #86b049;
+        }
+
+        .btn-accept:hover {
+            background-color: #86b049;
+            border-color: #86b049;
+        }
+
+        .btn-deny {
+            background-color: #c30101;
+            border-color: #c30101;
+        }
+
+        .btn-deny:hover {
+            background-color: #c30101;
+            border-color: #c30101;
+        }
+        
+    </style>
 </head>
 <body>
-    
-    <div class="back">
-        <form th:action="@{/tutor/}"  method="get">
-            <button type="submit" class="btn btn-primary">Back</button>
+    <div class="container">
+        <div class="back">
+            <form th:action="@{/tutor/}" method="get">
+                <button type="submit" class="btn btn-primary">Back</button>
             </form>
-    </div>
+        </div>
 
-    <div >
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Username</th>
                     <th>Course Name</th>
-                    <th>CoursePrice</th>
+                    <th>Course Price</th>
                     <th>Accept</th>
                     <th>Action</th>
-            
                 </tr>
             </thead>
             <tbody>
-                <tr th:each=" request :${requests}">
+                <tr th:each="request :${requests}">
                     <td th:text="${request.user.username}"></td>
                     <td th:text="${request.course.courseName}"></td>
                     <td th:text="${request.course.price}"></td>
                     <td th:text="${request.respone}"></td>
-                    <td> <form th:action="@{/tutor/buyingReq/{oId}/acp (oId =${request.id})}" method="post">
-
-                        <button type="submit" class="btn btn-primary"> Accept</button>
-                    </form> 
-
-                    <form th:action="@{/tutor/buyingReq/{oId}/de (oId =${request.id})}" method="post">
-
-                        <button type="submit" class="btn btn-primary"> deny</button>
-                    </form></td>
-                    
+                    <td>
+                        <form th:action="@{/tutor/buyingReq/{oId}/acp (oId=${request.id})}" method="post">
+                            <button type="submit" class="btn btn-accept">Accept</button>
+                        </form> 
+                        <form th:action="@{/tutor/buyingReq/{oId}/de (oId=${request.id})}" method="post">
+                            <button type="submit" class="btn btn-deny">Deny</button>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
-        </table> 
+        </table>
     </div>
 </body>
 </html>

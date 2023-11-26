@@ -3,28 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Video</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .input,
+        .back {
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        label {
+            color: #495057;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            display: inline-block;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
-    <div class="input">
-        <form th:action="@{/tutor/editVid/{vId}/{cId}(vId=${video.id},cId=${video.course.id})}" th:object="${video}" method="post">
-            <div class="">
-            <label for="title">Title: </label>
-            <input type="text" id="title" th:field="*{title}" th:value="video.title" required>
-            <label for="description">Description: </label>
-            <textarea cols="30" rows="10" type="text" id="description" th:field="*{description}" th:value="video.description" required></textarea>
-            <label for="path">Video Source: </label>
-            </div>
-            <input type="text" id="path" th:field="*{path}" th:value="video.path" required>
-            <button type="submit" class="btn btn-primary">Upload Video</button>
-        </form>
+    <div class="container">
+        <h1>Edit Video</h1>
+        <div class="input">
+            <form th:action="@{/tutor/editVid/{vId}/{cId}(vId=${video.id},cId=${video.course.id})}" th:object="${video}" method="post">
+                <div>
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" th:field="*{title}" th:value="video.title" required>
+                    <label for="description">Description:</label>
+                    <textarea cols="30" rows="10" id="description" th:field="*{description}" th:value="video.description" required></textarea>
+                    <label for="path">Video Source:</label>
+                </div>
+                <input type="text" id="path" th:field="*{path}" th:value="video.path" required>
+                <button type="submit" class="btn btn-primary">Upload Video</button>
+            </form>
         </div>
 
         <div class="back">
             <form th:action="@{/tutor/uplVid/{cId}/videos (cId=${video.course.id})}" method="get">
                 <button type="submit" class="btn btn-primary">Back</button>
-                </form>
+            </form>
         </div>
-
+    </div>
 </body>
 </html>

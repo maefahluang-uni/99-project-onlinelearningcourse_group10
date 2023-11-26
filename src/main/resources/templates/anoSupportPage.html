@@ -4,38 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap">
 </head>
 <body>
-    <div class="topBar">
-        
-        <a th:href="@{/ano/}" id="">P'TAO TUTORs</a>
-        <a th:href="@{/ano/}" id="">Home</a>
-        <a th:href="@{/ano/Courses}" id="">Courses</a>
-        <a th:href="@{/ano/support}" id="">Support</a>
-        
-        <div sec:authorize="hasAuthority('STUDENT')">
-            <a th:href="@{/student/profile}" id="">Profile</a>
+
+    <div class="container">
+        <div class="topBar">
+            <a th:href="@{/ano/}" id="">P'TAO TUTORs</a>
+            <a th:href="@{/ano/}" id="">Home</a>
+            <a th:href="@{/ano/Courses}" id="">Courses</a>
+            <a th:href="@{/ano/support}" id="">Support</a>
+
+            <div sec:authorize="hasAuthority('STUDENT')">
+                <a th:href="@{/student/profile}" id="">Profile</a>
+            </div>
+
+            <div sec:authorize="isAuthenticated()">
+                <a th:href="@{/logout}">Log out</a>
+            </div>
+
+            <div sec:authorize="isAnonymous()">
+                <a th:href="@{/login}">Log in</a>
+                <a th:href="@{/register}"> Register </a>
+            </div>
         </div>
-    
-        <div sec:authorize="isAuthenticated()">
-        <a th:href="@{/logout}">Log out</a>
-        </div>
-    
-        <div sec:authorize="isAnonymous()">
-        <a th:href="@{/login}">Log in</a>
-        <a th:href="@{/register}"> Register </a>
-        </div>
-        <!--<a th:href="@{/login}" id="Loginbutt">Login</a>
-        <a th:href="@{/logout}" id="Logoutbutt">LogOut</a>-->
-        </div>
-        
-    <br>
-    <H1>FAQ</H1>
-    <div th:each="faq : ${faqs}">
-        <p th:text="${faq.faqQuestion}"></p>
-        <p th:text="${faq.faqAnswer}"></p>
-        <p th:text="${faq.faqUploadDate}"></p>
+
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/403412536_1382561062361615_7408591081759642302_n.png?stp=dst-png_s2048x2048&_nc_cat=104&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeFMK7mkrpF6_RV8CoPxdJFWDOO4coYqUXEM47hyhipRcVfm2eCrCEfq9AYT4rA-kVTBh64ETHp-QNzqc-gqdS73&_nc_ohc=lj2q9vViKcsAX80cmFV&_nc_ht=scontent.fbkk5-5.fna&oh=03_AdRguwIwdoxn7r1c0RusVSdPnS6SnwaEHY1FxSZkobvDzw&oe=6587EE11&_nc_fr=fbkk5c05" class="background-image">
     </div>
 
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,700;1,100;1,600&display=swap');
+
+        .container {
+            position: relative;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: -1; /* Place the image behind other elements */
+        }
+
+        .topBar a {
+            transition: background-color 0.3s, color 0.3s; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px; 
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .topBar {
+            background-color: #333;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .topBar a {
+            color: #f2f2f2;
+            text-decoration: none;
+            font-size: 16px;
+            margin-right: 20px;
+            transition: color 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+
+        .topBar a:hover {
+            color: #ddd;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .topBar div a {
+            margin-left: 20px;
+            font-family: 'Montserrat', sans-serif;
+
+        }
+
+        .topBar a#logo {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+    
 </body>
 </html>

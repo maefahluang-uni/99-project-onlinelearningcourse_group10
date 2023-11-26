@@ -3,30 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit FAQ</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .back,
+        .input {
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        label {
+            color: #495057;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            display: inline-block;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
-
-    <div class="back">
-        <form th:action="@{/tutor/FAQ}"  method="get">
-            <button type="submit" class="btn btn-primary">Back</button>
+    <div class="container">
+        <div class="back">
+            <form th:action="@{/tutor/FAQ}" method="get">
+                <button type="submit" class="btn btn-primary">Back</button>
             </form>
-    </div>
-
-    <div class="input">
-        <form th:action="@{/tutor/editFAQ/{fId}(fId =${oldFAQ.id})}" th:object="${newFAQ}" method="post">
-            <div class="" th:object="${oldFAQ}">
-                <label for="Question">Question: </label>
-                <input type="text" id="Question" th:field="*{faqQuestion}" th:value="oldFAQ.faqQuestion" required>
-                <br>
-             <label for="Ans">Answer: </label>
-             <input type="text" id="Ans"  th:field="*{faqAnswer}" th:value="oldFAQ.faqAnswer" required>
-             <label for="date">Upload Date: </label>
-            
-             <input type="date" id="date" th:field="*{faqUploadDate}" th:value="oldFAQ.faqUploadDate" required>
-             <button type="submit" class="btn btn-primary">Edit</button>
-            </div>
-        </form>
         </div>
+
+        <div class="input">
+            <form th:action="@{/tutor/editFAQ/{fId}(fId=${oldFAQ.id})}" th:object="${newFAQ}" method="post">
+                <div th:object="${oldFAQ}">
+                    <label for="Question">Question:</label>
+                    <input type="text" id="Question" th:field="*{faqQuestion}" th:value="oldFAQ.faqQuestion" required>
+                    <br>
+                    <label for="Ans">Answer:</label>
+                    <input type="text" id="Ans" th:field="*{faqAnswer}" th:value="oldFAQ.faqAnswer" required>
+                    <label for="date">Upload Date:</label>
+                    <input type="date" id="date" th:field="*{faqUploadDate}" th:value="oldFAQ.faqUploadDate" required>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
