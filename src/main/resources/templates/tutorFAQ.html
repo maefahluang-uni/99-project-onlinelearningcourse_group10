@@ -839,25 +839,27 @@ body-line1{
     </div>
 
     <div class="showinfo">
-        <h1 class="Q&A">Q&A</h1>
-        <ul class="Q&A-list">
-            <a th:each="faq : ${faqs}" class="Q&A-item">
-                <span style="font-size: 20px;" th:text="${faq.faqQuestion}"></span>
-                <span class="ml-3" style="font-size: 20px;" th:text="${faq.faqAnswer}"></span>
-                <span class="ml-3" style="font-size: 20px;" th:text="${faq.faqUploadDate}"></span>
-            </a>
+        <ul class="Q&A List">
+                <H1>Q&A</H1>
+            <a th:each="faq : ${faqs}" class="list-group-item">
+                <span th:text="${faq.faqQuestion}"></span> 
+                <span class="ml-3" th:text="${faq.faqAnswer}"></span>
+                <span class="ml-3" th:text="${faq.faqUploadDate}"></span>
 
-                <form method="GET" th:action="@{/tutor/editFAQ/{fId}(fId=${faq.id})}">
-                    <button type="submit" name="submit" value="value" class="link-buttons">Edit</button>
-                    <form method="POST" th:action="@{/tutor/deleFAQ/{fId}(fId=${faq.id})}">
-                        <button method="POST" th:action="@{/tutor/deleFAQ/{fId}(fId=${faq.id})}" type="submit" name="submit" value="value" class="link-button">DELETE</button>
-                    </form>
-                </form>
-                
+            <form method="GET" th:action="@{/tutor/editFAQ/{fId}(fId=${faq.id})}" style="display: inline-block;">
+                <button type="submit" name="submit" value="value" class="link-buttons">Edit</button>
+            </form>
+            
+            
+            <form method="POST" th:action="@{/tutor/deleFAQ/{fId}(fId=${faq.id})}" style="display: inline-block;">
+                <button type="submit" name="submit" value="value" class="link-button">DELETE</button>
+            </form>
                 
             </a>
         </ul>
+
     </div>
+
 
     <div class="form">
         <form th:action="@{/tutor/FAQupl}" th:object="${faq}" method="post">
