@@ -4,7 +4,10 @@
 # Project description
 
 ## What is this project?
+
 = This project is Online learning course website where students can buy and learn courses from anywhere using the website, and tutors can upload as many courses as they want to the website. This product will help tutors to fix the issue of  teaching the same topic so many times. This product will help tutor teach many students at once. Make the tutor teach more subjects in the future and more effectively. This software product has two users: tutor and student.
+
+```
 	Student can perform following:
 		-Login.
 		-Register.
@@ -15,13 +18,15 @@
 		-Manage orders (accept and decline orders). 
 		-Manage FAQ (upload, edit, delete).
 		-Manage category (upload, edit, delete)
-
+```
 ### How to use This Website?
-= 
+```
+
 1.Student
 1.1 Register Student put in username and password then press Register.(username has to be uniuqe)
 1.2 Login Student put in username and password then press Login.
 1.3 Send order (Buy course) Student login and click buy then click send order
+
 2.Tutor 
 2.1 Upload course tutor put in all vaule and src for introduction and thumbnail and click.
 2.2 Tutor can edit course.
@@ -29,13 +34,13 @@
 2.4 Tutor can upload units(video for the courses) and delete edit them.
 2.5 tutor can manage buying order in order tap by clicking accept and deny.
 2.5 tutor can upload, faq edit faq, and delete faq.
-        
+```
 
 
 
 
 ## Group Memember
-            Group 10
+### Group 10
 | Name-Lastname       | ID         | GitHub UserName            |
 | ------------------- |:----------:| --------------------------:|
 | Thanawat Chomphurak | 6531501056 | (study CE)                 |
