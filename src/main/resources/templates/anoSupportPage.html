@@ -656,15 +656,9 @@ body-line1{
     height: 100%;
 }
 /* For responsiveness */
-@media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: 1fr; /* Change to a single column on smaller screens */
-    }
-}
-
 @media only screen and (max-width: 768px) {
-    header-brown {
-        padding: 10px;
+    header-tran {
+        padding: 15px;
     }
 
     .logo img {
@@ -686,6 +680,27 @@ body-line1{
         margin-top: 10px;
     }
 }
+@media only screen and (max-width: 768px) {
+    txz {
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .container {
+        margin-top: 80px;
+    }
+
+    .container form-tran {
+        flex: 0 0 calc(100% - 20px);
+        max-width: calc(100% - 20px);
+    }
+}
+@media only screen and (max-width: 768px) {
+    c-icon {      
+        margin-right: 20px;
+    }
+}
+
 
 /* Adjustments for smaller screens */
 @media only screen and (max-width: 768px) {
@@ -761,7 +776,8 @@ body-line1{
                 <p th:text="${faq.faqAnswer}"></p>
                 <p th:text="${faq.faqUploadDate}"></p>
             </div>
-
+        </div>
+    </div>
         </h1>
    
     
