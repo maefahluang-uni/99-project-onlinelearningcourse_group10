@@ -454,6 +454,7 @@ nav{
     font-weight: 800;
     transition: background-color 0.3s;
     margin-left: 10px;
+    cursor: pointer;
 }
 .link-button {
     display: inline-block;
@@ -466,6 +467,15 @@ nav{
     font-weight: 800;
     transition: background-color 0.3s;
     margin-left: 10px;
+    cursor: pointer;
+}
+.link-button:hover{
+    background-color: rgb(243, 119, 108);
+    transition: .5s;
+}
+.link-buttons:hover{
+    background-color: #d1d1d1;
+    transition: .5s;
 }
 .loginastutor-button:hover{
     background: rgb(216, 216, 216);
@@ -845,7 +855,7 @@ body-line1{
                 <span th:text="${faq.faqQuestion}"></span> 
                 <span class="ml-3" th:text="${faq.faqAnswer}"></span>
                 <span class="ml-3" th:text="${faq.faqUploadDate}"></span>
-
+            <div>
             <form method="GET" th:action="@{/tutor/editFAQ/{fId}(fId=${faq.id})}" style="display: inline-block;">
                 <button type="submit" name="submit" value="value" class="link-buttons">Edit</button>
             </form>
@@ -854,7 +864,7 @@ body-line1{
             <form method="POST" th:action="@{/tutor/deleFAQ/{fId}(fId=${faq.id})}" style="display: inline-block;">
                 <button type="submit" name="submit" value="value" class="link-button">DELETE</button>
             </form>
-                
+             </div>
             </a>
         </ul>
 
