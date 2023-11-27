@@ -17,6 +17,7 @@ import th.mfu.repositories.UsersRepository;
 
 
 //Controller that manage login pages
+//Controller เกี่ยวกับหน้า login กับ register
 @Controller
 public class LoginCotroller {
     @Autowired
