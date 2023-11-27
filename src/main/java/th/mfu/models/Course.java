@@ -18,6 +18,7 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Course {
 
+    //6 Models
     /*GenerationType.IDENTITY to let the !database! handle the auto incrementing of the id
     Mysql not support sequence
     */

@@ -15,6 +15,9 @@ import th.mfu.repositories.FAQRepository;
 import th.mfu.repositories.VideoRepository;
 
 //Not login users
+// 5 controllers
+//Not login users
+//controller สำหรับ page ที่ยังไม่ได้ login 
 @Controller
 @RequestMapping("/ano")
 @CrossOrigin("*")

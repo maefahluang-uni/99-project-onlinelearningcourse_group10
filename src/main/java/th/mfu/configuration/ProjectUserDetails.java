@@ -17,6 +17,7 @@ import th.mfu.models.users;
 import th.mfu.repositories.UsersRepository;
 
 //for retrieving a username, a password, and other attributes for authenticating to Authentication Provider with a username and password.
+//สำหรับดึงข้อมูล username และ password จาก database ไป authenticate ที่ Authentication Provider 
 @Service
 public class ProjectUserDetails implements UserDetailsService {
     @Autowired
