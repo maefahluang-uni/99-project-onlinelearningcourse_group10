@@ -753,14 +753,16 @@ transition: 0.5s;
     line-height: -50px;
     font-family: 'Montserrat', sans-serif;
         }
-    #hero {
+        #hero {
     position: relative;
     background-image: url(https://scontent.fbkk13-3.fna.fbcdn.net/v/t1.15752-9/370267405_7201991316500332_4360426011187969116_n.png?_nc_cat=101&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeHQoJ0UJq_tlb-EWryuDDjsLfCyplPGLT4t8LKmU8YtPrBb1xLmXjkthrrIry66UbGXdBq1y8EB2ak5vSnfEXod&_nc_ohc=IenZiq6bU-YAX_l-oNs&_nc_ht=scontent.fbkk13-3.fna&oh=03_AdTqPZOkvadW9OMs_NeJVtNIZPYSWwtEriukNG6ghsChEg&oe=6587EE7E);
-    background-size: auto; 
+    background-size: cover; 
     height: 70vh;
     width: 100%;
     background-position: top 25% right 0%;
+    background-attachment: fixed; /* Add this line */
     display: flex;
+    background-repeat: no-repeat;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
@@ -768,12 +770,13 @@ transition: 0.5s;
 #bottom {
     position: relative;
     background-image: url(https://scontent.fbkk5-5.fna.fbcdn.net/v/t1.15752-9/405308556_197606840064569_705226731422579265_n.png?stp=dst-png_s2048x2048&_nc_cat=104&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeGW8trN4HPVGhBzAlgl8qavjHzAKWxsNHOMfMApbGw0c2r-UBM98afDmmgyvBfFDkrf84Zi1R8ZjpXS4VbHunaL&_nc_ohc=FjRoFu0URWAAX_71pdm&_nc_ht=scontent.fbkk5-5.fna&oh=03_AdQOBXqvKr6xi_gcv2A6qamwIiOiPZ18m4m7AOqTGNpv4w&oe=658B4C54);
-    background-size: auto; 
+    background-size: cover; 
     height: 60vh;
     width: 100%;
     background-position: top 25% right 50%;
     display: flex;
     flex-direction: column;
+    background-repeat: no-repeat;
     align-items: flex-start;
     justify-content: center;
 }
@@ -792,7 +795,7 @@ font-size: 20px;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 3px;
-    font-size: 20px;
+    font-size: 40px;
     line-height: 0px;
     padding-left: 30px;
 }
@@ -938,14 +941,13 @@ h1{
         </div>
     </div>
     
-    <tx>CONTACT US</tx>
-
-    
     <div th:each="faq : ${faqs}">
-        <p th:text="${faq.faqQuestion}"></p>
-        <p th:text="${faq.faqAnswer}"></p>
-        <p th:text="${faq.faqUploadDate}"></p>
+        <a th:text="${faq.faqQuestion}"></a>
+        <a th:text="${faq.faqAnswer}"></a>
+        <a th:text="${faq.faqUploadDate}"></a>
     </div>
+
+    <tx>CONTACT US</tx>
 
 
     <section id="bottom">
